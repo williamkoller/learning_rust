@@ -2,22 +2,22 @@ use std::thread;
 use std::time::Duration;
 
 fn main() {
-  let hanlderOne = thread::spawn(|| {
+  let handle_one = thread::spawn(|| {
     for i in 1..5 {
       println!("Thread one : {}", i);
       thread::sleep(Duration::from_millis(500));
     }
   });
 
-  let handleTwo = thread::spawn(|| {
-    for i in 1..=5 {
-        println!("Thread two: {}", i);
-        thread::sleep(Duration::from_millis(300));
+  let handle_two = thread::spawn(|| {
+    for i in 1..= 5 {
+      println!("Thread two: {}", i);
+      thread::sleep(Duration::from_millis(300));
     }
   });
 
-    hanlderOne.join().unwrap();
-    handleTwo.join().unwrap();
+  handle_one.join().unwrap();
+  handle_two.join().unwrap();
 
-    println!("Fim!");
+  println!("Fim!");
 }
